@@ -41,7 +41,7 @@ Route::name('students.')->prefix('students')->group(function () {
     Route::put('/{id}', [StudentController::class, 'update'])->name('update');
 
     //delete data student logic
-    Route::delete('/', [StudentController::class, 'destroy'])->name('destroy');
+    Route::delete('/{id}', [StudentController::class, 'destroy'])->name('destroy');
 
 });
 
@@ -52,7 +52,7 @@ Route::name('teachers.')->prefix('teacher')->group(function() {
     Route::get('/', [TeacherController::class, 'index'])->name('index');
 
     //show teacher detail page
-    Route::get('/', [TeacherController::class, 'show'])->name('show');
+    Route::get('/{id}', [TeacherController::class, 'show'])->name('show');
 
     //add teacher page
     Route::get('/create', [TeacherController::class, 'create'])->name('create');
@@ -67,7 +67,7 @@ Route::name('teachers.')->prefix('teacher')->group(function() {
     Route::put('/{id}', [TeacherController::class, 'update'])->name('update');
 
     //delete teacher logic
-    Route::delete   ('/', [TeacherController::class, 'destroy'])->name('destroy');
+    Route::delete('/{id}', [TeacherController::class, 'destroy'])->name('destroy');
 });
 
 //school class management
@@ -77,7 +77,7 @@ Route::name('classes.')->prefix('classes')->group(function(){
     Route::get('/', IndexController::class)->name('index');
 
     //show school class detail page
-    Route::get('/', ShowController::class)->name('show');
+    Route::get('/{id}', ShowController::class)->name('show');
 
     //add school class page
     Route::get('/create', CreateController::class)->name('create');
@@ -92,7 +92,7 @@ Route::name('classes.')->prefix('classes')->group(function(){
     Route::put('/{id}', UpdateController::class)->name('update');
 
     //delete school class logic
-    Route::delete   ('/', DestroyController::class)->name('destroy');
+    Route::delete('/{id}', DestroyController::class)->name('destroy');
 });
 
     //Majors management

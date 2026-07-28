@@ -12,6 +12,6 @@ class CreateController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return "Menampilkan halaman tambah class";
+        return "Menampilkan halaman tambah kelas";
     }
 }
