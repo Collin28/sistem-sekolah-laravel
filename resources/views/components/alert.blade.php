@@ -1,18 +1,24 @@
-@php
-    $isInactive = $status === "Tidak Aktif";
+@props(['type' => 'SUCCESS'])
 
-    $badgeClasses = $isInactive
-        ? 'border-red-200 bg-red-50 text-red-700'
-        : 'border-green-200 bg-green-50 text-green-700';
-
-
-    $dotClasses = $isInactive ? 'bg-red-500' : 'bg-green-500';
-    $label = $isInactive ? 'Tidak Aktif' : 'Aktif';
-
-@endphp
-
-<div
-    class="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm font-semibold shadow-sm {{ $badgeClasses }}">
-    <div class="h-2.5 w-2.5 rounded-full {{ $dotClasses }}"></div>
-    <span>{{ $label }}</span>
+@if ($type == 'ERROR')
+    <div class="border border-red-500 bg-red-100 rounded-lg p-4">
+    <h1 class="text-lg text-red-500 font-bold">Error</h1>
+    <p class="text-red-500">{{ $slot }}</p>
 </div>
+
+@elseif($type == 'WARNING')
+    <div class="border border-yellow-500 bg-yellow-100 rounded-lg p-4">
+        <h1 class="text-lg text-yellow-500 font-bold">Warning</h1>
+        <p class="text-yellow-500">{{ $slot }}</p>
+    </div>
+
+@elseif($type == 'SUCCESS')
+    <div class="border border-green-500 bg-green-100 rounded-lg p-4">
+    <h1 class="text-lg text-green-500 font-bold">Success</h1>
+    <p class="text-green-500">{{ $slot }}</p>
+@else
+    <div class="border border-blue-500 bg-blue-100 rounded-lg p-4">
+    <h1 class="text-lg text-blue-500 font-bold">Info</h1>
+    <p class="text-blue-500">{{ $slot }}</p>
+</div>
+@endif
