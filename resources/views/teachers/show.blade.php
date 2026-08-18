@@ -3,7 +3,7 @@
 @section('title', $title)
 
 @section('content')
-    <a href="{{ route('students.index') }}" class="text-xs uppercase tracking-[0.15em] text-slate-400 hover:text-[#A16207]">&larr; Buku
+    <a href="{{ route('teachers.index') }}" class="text-xs uppercase tracking-[0.15em] text-slate-400 hover:text-[#A16207]">&larr; Buku
 
         Induk</a>
 
@@ -15,11 +15,11 @@
 
             <div>
 
-                <p class="mb-1 text-[11px] uppercase tracking-[0.2em] text-[#A16207]">Lembar Siswa</p>
+                <p class="mb-1 text-[11px] uppercase tracking-[0.2em] text-[#A16207]">Lembar Guru</p>
 
                 <h1 class="font-display text-3xl font-semibold text-[#16213A]">Budi Ariyanto</h1>
 
-                <p class="mt-1 font-mono text-xs text-slate-500">NIS 2024001</p>
+                <p class="mt-1 font-mono text-xs text-slate-500">NIP 2024001</p>
 
             </div>
 
@@ -34,9 +34,9 @@
 
             <div class="flex justify-between px-8 py-4">
 
-                <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">NIS</dt>
+                <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">NIP</dt>
 
-                <dd class="font-medium text-[#16213A]">2024001</dd>
+                <dd class="font-medium text-[#16213A]">198501012024</dd>
 
             </div>
 
@@ -58,17 +58,26 @@
 
             <div class="flex justify-between px-8 py-4">
 
-                <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">Jurusan</dt>
+                <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">Mata Pelajaran</dt>
 
-                <dd class="font-medium text-[#16213A]">RPL</dd>
+                <dd class="font-medium text-[#16213A]">Akuntansi Dasar</dd>
 
             </div>
 
             <div class="flex justify-between px-8 py-4">
 
-                <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">Kelas</dt>
+                <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">NO. Telepon</dt>
 
-                <dd class="font-medium text-[#16213A]">XII AKL 1</dd>
+                <dd class="font-medium text-[#16213A]">081234560001</dd>
+
+            </div>
+
+            
+            <div class="flex justify-between px-8 py-4">
+
+                <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">Status</dt>
+
+                <dd class="font-medium text-[#16213A]"> <x-status-badge status="Aktif"/></dd>
 
             </div>
 
@@ -78,9 +87,9 @@
 
         <div class="flex justify-end gap-4 border-t border-[#E5E3DB] px-8 py-5">
 
-            <a href="{{ route('students.index') }}" class="px-4 py-2.5 text-sm font-medium text-slate-500 hover:text-[#16213A]">Kembali</a>
+            <a href="{{ route('teachers.index') }}" class="px-4 py-2.5 text-sm font-medium text-slate-500 hover:text-[#16213A]">Kembali</a>
 
-            <form action="" method="POST" onsubmit="return confirm('Hapus data siswa ini dari buku induk?')">
+            <form action="" method="POST" onsubmit="return confirm('Hapus data guru ini dari buku induk?')">
 
                 @csrf
 

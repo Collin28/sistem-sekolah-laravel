@@ -10,6 +10,7 @@ use App\Http\Controllers\SchoolClass\EditController;
 use App\Http\Controllers\SchoolClass\StoreController;
 use App\Http\Controllers\SchoolClass\UpdateController;
 use App\Http\Controllers\SchoolClass\DestroyController;
+use illuminate\Support\Facedes\Routes;
 
 
 
@@ -25,11 +26,11 @@ Route::name('students.')->prefix('students')->group(function () {
     //show student list page
     Route::get('/', [StudentController::class, 'index'])->name('index');
 
-    //show student detail page
-    Route::get('/{id}', [StudentController::class, 'show'])->name('show');
-
     //add student page
     Route::get('/create', [StudentController::class, 'create'])->name('create');
+
+    //show student detail page
+    Route::get('/{id}', [StudentController::class, 'show'])->name('show');
 
     //edit student page
     Route::get('/{id}/edit', [StudentController::class, 'edit'])->name('edit');
@@ -46,19 +47,19 @@ Route::name('students.')->prefix('students')->group(function () {
 });
 
 //Teachers data management
-Route::name('teachers.')->prefix('teacher')->group(function() {
+Route::name('teachers.')->prefix('teachers')->group(function() {
     
     //show student list page
     Route::get('/', [TeacherController::class, 'index'])->name('index');
-
-    //show teacher detail page
-    Route::get('/{id}', [TeacherController::class, 'show'])->name('show');
 
     //add teacher page
     Route::get('/create', [TeacherController::class, 'create'])->name('create');
 
     //edit teacher page
     Route::get('/{id}/edit', [TeacherController::class, 'edit'])->name('edit');
+
+    //show teacher detail page
+    Route::get('/{id}', [TeacherController::class, 'show'])->name('show');
 
     //add teacher logic
     Route::post('/', [TeacherController::class, 'store'])->name('store');
@@ -76,14 +77,14 @@ Route::name('classes.')->prefix('classes')->group(function(){
     //show school class list page
     Route::get('/', IndexController::class)->name('index');
 
-    //show school class detail page
-    Route::get('/{id}', ShowController::class)->name('show');
-
     //add school class page
     Route::get('/create', CreateController::class)->name('create');
 
     //edit school class page
     Route::get('/{id}/edit', EditController::class)->name('edit');
+
+    //show school class detail page
+    Route::get('/{id}', ShowController::class)->name('show');
 
     //add school class logic
     Route::post('/', StoreController::class)->name('store');
