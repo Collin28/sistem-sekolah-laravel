@@ -20,6 +20,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Authentication
+Route::get('/login', [App\Http\Controllers\AuthController::class, 'loginView'])->name('login-view');
+Route::post('/login', [App\Http\Controllers\AuthController::class, 'loginPost'])->name('login-post');
+Route::get('/register', [App\Http\Controllers\AuthController::class, 'registerView'])->name('register-view');
+Route::post('/register', [App\Http\Controllers\AuthController::class, 'registerPost'])->name('register-post');
+Route::post('/logout', [App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
+
+
 //student data management 
 Route::name('students.')->prefix('students')->group(function () {
 
@@ -47,8 +55,8 @@ Route::name('students.')->prefix('students')->group(function () {
 });
 
 //Teachers data management
-Route::name('teachers.')->prefix('teachers')->group(function() {
-    
+Route::name('teachers.')->prefix('teachers')->group(function () {
+
     //show student list page
     Route::get('/', [TeacherController::class, 'index'])->name('index');
 
@@ -72,8 +80,8 @@ Route::name('teachers.')->prefix('teachers')->group(function() {
 });
 
 //school class management
-Route::name('classes.')->prefix('classes')->group(function(){
-    
+Route::name('classes.')->prefix('classes')->group(function () {
+
     //show school class list page
     Route::get('/', IndexController::class)->name('index');
 
@@ -96,5 +104,5 @@ Route::name('classes.')->prefix('classes')->group(function(){
     Route::delete('/{id}', DestroyController::class)->name('destroy');
 });
 
-    //Majors management
-    Route::resource('majors', MajorController::class);
+//Majors management
+Route::resource('majors', MajorController::class);
